@@ -1,27 +1,35 @@
 {
-    "name": ":vendor_slug/:package_slug",
-    "description": ":package_description",
+    "name": "mochaka/laravel-serializer",
+    "description": "A Laravel wrapper around Symfony Serializer",
     "keywords": [
-        ":vendor_name",
+        "mochaka",
         "laravel",
-        ":package_slug"
+        "laravel-serializer"
     ],
-    "homepage": "https://github.com/:vendor_slug/:package_slug",
+    "homepage": "https://github.com/mochaka/laravel-serializer",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": "author@domain.com",
+            "name": "Aaron Florey",
+            "email": "azza@jcaks.net",
             "role": "Developer"
         }
     ],
     "require": {
         "php": "^8.1",
+        "doctrine/annotations": "^2.0",
+        "illuminate/contracts": "^9.0|^10.0",
+        "phpdocumentor/reflection-docblock": "^5.3",
         "spatie/laravel-package-tools": "^1.14.0",
-        "illuminate/contracts": "^10.0"
+        "symfony/property-access": "5.4.11",
+        "symfony/property-info": "^6.2",
+        "symfony/serializer": "^6.2"
     },
     "require-dev": {
-        "laravel/pint": "^1.0",
+        "buckhamduffy/coding-standards": "^3",
+        "captainhook/captainhook": "^5.15",
+        "captainhook/plugin-composer": "^5.3",
+        "irazasyed/docgen": "^0.2.0",
         "nunomaduro/collision": "^7.9",
         "nunomaduro/larastan": "^2.0.1",
         "orchestra/testbench": "^8.0",
@@ -31,17 +39,18 @@
         "phpstan/extension-installer": "^1.1",
         "phpstan/phpstan-deprecation-rules": "^1.0",
         "phpstan/phpstan-phpunit": "^1.0",
+        "ramsey/conventional-commits": "^1.5",
         "spatie/laravel-ray": "^1.26"
     },
     "autoload": {
         "psr-4": {
-            "VendorName\\Skeleton\\": "src/",
-            "VendorName\\Skeleton\\Database\\Factories\\": "database/factories/"
+            "Mochaka\\LaravelSerializer\\": "src/",
+            "Mochaka\\LaravelSerializer\\Database\\Factories\\": "database/factories/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "VendorName\\Skeleton\\Tests\\": "tests/"
+            "Mochaka\\LaravelSerializer\\Tests\\": "tests/"
         }
     },
     "scripts": {
@@ -55,16 +64,17 @@
         "sort-packages": true,
         "allow-plugins": {
             "pestphp/pest-plugin": true,
-            "phpstan/extension-installer": true
+            "phpstan/extension-installer": true,
+            "captainhook/plugin-composer": true
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "VendorName\\Skeleton\\SkeletonServiceProvider"
+                "Mochaka\\LaravelSerializer\\LaravelSerializerServiceProvider"
             ],
             "aliases": {
-                "Skeleton": "VendorName\\Skeleton\\Facades\\Skeleton"
+                "LaravelSerializer": "Mochaka\\LaravelSerializer\\Facades\\LaravelSerializer"
             }
         }
     },
